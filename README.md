@@ -21,7 +21,6 @@ This work presents HybridDepth. HybridDepth is a practical depth estimation solu
 ## TODOs
 - [ ] Add pre-trained models.
 - [ ] Add Hugging Face model.
-- [ ] Add single input image prediction.
 - [ ] Release Android Mobile Client for HybridDepth.
 
 ## Pre-trained Models
