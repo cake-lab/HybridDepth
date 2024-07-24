@@ -1,9 +1,9 @@
 # pytorch_lightning==2.1.0
 data:
   # For DDFF12DataModule
-  class_path: dataloader.dataset.DDFF12DataModule
+  class_path: dataloader.dataset.DDFF12DataModule # Path to your dataloader Module in dataset.py
   init_args:
-    ddff12_data_root: '/home/ashkanganj/workspace/dataset/dff_trainVal.h5'
+    ddff12_data_root: '/home/ashkanganj/workspace/dataset/dff_trainVal.h5'  # path to the specific dataset
     img_size: [383, 552]  # Adjust if your DDFF12DataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 1
@@ -13,4 +13,4 @@ data:
 model:
   invert_depth: False
 
-ckpt_path: /home/ashkanganj/workspace/2023-HybridDepth-DepthProject/checkpoints/DDFF12BestScaleInv.ckpt
+ckpt_path: ./checkpoints/checkpoint.pth #path to the checkpoint

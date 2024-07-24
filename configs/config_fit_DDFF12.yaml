@@ -58,12 +58,11 @@ model:
   # weight decay
   wd: 0.001
 data:
-  class_path: dataloader.dataset.DDFF12DataModule
+  class_path: dataloader.dataset.DDFF12DataModule # Path to your dataloader Module in dataset.py
   init_args:
-    ddff12_data_root: '/home/ashka/data/my_ddff_trainVal.h5'
+    ddff12_data_root: '/home/ashka/data/my_ddff_trainVal.h5' # Path to your dataset
     img_size: [224,224] 
-    batch_size: 8
+    batch_size: 8 # Adjust batch size
     num_workers: 0  # Adjust based on your requirements
     num_cluster: 5
-# ckpt_path: /home/ashkanganj/workspace/PrecisionDepthFocus/logs/lightning_logs/version_0/checkpoints/epoch=599-step=60000.ckpt
-ckpt_path: null
+ckpt_path: null # checkpoints to continue the training.

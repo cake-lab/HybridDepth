@@ -1,9 +1,8 @@
 # pytorch_lightning==2.1.0
 data:
-  class_path: dataloader.dataset.NYUDataModule
+  class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: '/home/ashkanganj/workspace/dataset/nyu_depth_v2/official_splits'
-    # nyuv2_data_root: '/home/ashka/data/nyu_depth_v2_labeled.mat'
+    nyuv2_data_root: '/home/ashkanganj/workspace/dataset/nyu_depth_v2/official_splits' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 1
@@ -14,4 +13,4 @@ data:
 model:
   invert_depth: True
 
-ckpt_path: /home/ashkanganj/workspace/PrecisionDepthFocus/checkpoints/NYUBestScaleInv10Full.ckpt
+ckpt_path: ./checkpoints/checkpoint.pth #path to checkpoint

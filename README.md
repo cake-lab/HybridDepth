@@ -10,15 +10,15 @@
 <a href=''><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-yellow'></a>
 </div>
 
-
 This work presents HybridDepth. HybridDepth is a practical depth estimation solution based on focal stack images captured from a camera. This approach outperforms state-of-the-art models across several well-known datasets, including NYU V2, DDFF12, and ARKitScenes.
 ![teaser](assets/teaser.png)
 
-
 ## News
+
 - **2024-07-23:** Model and Github repository is online.
 
 ## TODOs
+
 - [ ] Add pre-trained models.
 - [ ] Add Hugging Face model.
 - [ ] Release Android Mobile Client for HybridDepth.
@@ -47,6 +47,7 @@ conda activate hybriddepth
 Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
 
 ### Using HybridDepth model for prediction
+
 For inference you can run the provided notebook `test.ipynb` or use the following command:
 
 ```python
@@ -61,7 +62,6 @@ model = model.to('cuda')
 ```
 
 After loading the model, you can use the following code to process the input images and get the depth map:
-
 
 ```python
 
@@ -85,13 +85,12 @@ First setup the configuration file `config.yaml` in the `configs` directory. We 
 
 ```yaml
 data:
-  class_path: dataloader.dataset.NYUDataModule
+  class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: 'path to the NYUv2 dataset'
-    img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
+    nyuv2_data_root: 'path to the NYUv2 dataset' # path to the specific dataset
+    img_size: [480, 640]  # Adjust if your DataModule expects a tuple for img_size
     remove_white_border: True
-    batch_size: 1
-    num_workers: 0  # due to the synthetic data, we don't need multiple workers
+    num_workers: 0  # if you are using synthetic data, you don't need multiple workers
     use_labels: True
     num_cluster: 5
 
@@ -100,7 +99,14 @@ model:
 
 ckpt_path: checkpoints/hybrid_depth_nyu.pth
 ```
-Then specify the configuration file in the `evaluate.sh` script. Finally, run the following command:
+
+Then specify the configuration file in the `test.sh` script.
+
+```bash
+python cli_run.py test  --config configs/config_file_name.yaml
+```
+
+Finally, run the following command:
 
 ```bash
 cd scripts
@@ -117,25 +123,30 @@ For example, you can use the following configuration file for training on the NY
 model:
   invert_depth: True
   # learning rate
-  lr: 3e-4
+  lr: 3e-4 # you can adjust this value
   # weight decay
-  wd: 0.001
+  wd: 0.001 # you can adjust this value
 
 data:
-  class_path: dataloader.dataset.NYUDataModule
+  class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: 'root to the NYUv2 dataset'
+    nyuv2_data_root: 'root to the NYUv2 dataset' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
-    batch_size: 24
-    num_workers: 0  # based on the synthetic data, we don't need multiple workers
+    batch_size: 24 # Adjust the batch size
+    num_workers: 0  # if you are using synthetic data, you don't need multiple workers
     use_labels: True
     num_cluster: 5
 ckpt_path: null
 ```
 
+Then specify the configuration file in the `train.sh` script.
 
-Then specify the configuration file in the `train.sh` script. Finally, run the following command:
+```bash
+python cli_run.py train  --config configs/config_file_name.yaml
+```
+
+Finally, run the following command:
 
 ```bash
 cd scripts

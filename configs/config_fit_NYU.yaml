@@ -60,13 +60,11 @@ model:
 data:
   class_path: dataloader.dataset.NYUDataModule
   init_args:
-    # nyuv2_data_root: '/home/ashka/data/nyu_depth_v2_labeled.mat'
     nyuv2_data_root: '/home/ashka/data/nyu_depth_v2/official_splits/'
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
-    batch_size: 24
-    num_workers: 0  # Adjust based on your requirements
+    batch_size: 24 # Adjust batch size
+    num_workers: 0   # leave it as zero since we are using synthesizing method
     use_labels: True
-    num_cluster: 5
-# ckpt_path: /home/ashkanganj/workspace/PrecisionDepthFocus/logs/lightning_logs/version_0/checkpoints/epoch=599-step=60000.ckpt
-ckpt_path: null
+    num_cluster: 5  
+ckpt_path: null # checkpoints to continue the training.

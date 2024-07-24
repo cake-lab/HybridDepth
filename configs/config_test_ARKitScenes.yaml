@@ -1,14 +1,14 @@
 # pytorch_lightning==2.1.0
 data:
-  class_path: dataloader.dataset.ARKitScenesDataModule
+  class_path: dataloader.dataset.ARKitScenesDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    arkitScenes_data_root: '/mnt/IRONWOLF1/ashkan/data/ARKitScenes/upsampling'
+    arkitScenes_data_root: '/mnt/IRONWOLF1/ashkan/data/ARKitScenes/upsampling' # path to the dataset
     img_size: [480, 640] 
     batch_size: 1
     num_workers: 0  # Adjust based on your requirements
     num_cluster: 5
 
 model:
-  invert_depth: True
+  invert_depth: True 
 
-ckpt_path: /home/ashkanganj/workspace/2023-HybridDepth-DepthProject/checkpoints/scaleInvARKitScenes5.ckpt
+ckpt_path: ./checkpoints/checkpoint.pth #path to the checkpoint

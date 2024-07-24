@@ -58,12 +58,12 @@ model:
   # weight decay
   wd: 0.001
 data:
-  class_path: dataloader.dataset.ARKitScenesDataModule
+  class_path: dataloader.dataset.ARKitScenesDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    arkitScenes_data_root: '/mnt/IRONWOLF1/ashkan/data/ARKitScenes/upsampling'
+    arkitScenes_data_root: '/mnt/IRONWOLF1/ashkan/data/ARKitScenes/upsampling' # Path to your dataset
     img_size: [480, 640] 
-    batch_size: 12 
-    num_workers: 0  # Adjust based on your requirements
+    batch_size: 12 # Adjust batch size
+    num_workers: 0  # leave it as zero since we are using synthesizing method
     num_cluster: 5
 
-ckpt_path: /home/ashkanganj/workspace/PrecisionDepthFocus/checkpoints/NYUBestScaleInv5Full.ckpt
+ckpt_path: null # checkpoints to continue the training.
