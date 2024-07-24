@@ -38,7 +38,7 @@ We provide **three models** trained on different datasets. You can download them
 ### Prepraration
 
 ```bash
-git clone 
+git clone https://github.com/cake-lab/HybridDepth.git
 cd HybridDepth
 conda env create -f environment.yml
 conda activate hybriddepth
@@ -60,7 +60,8 @@ model.eval()
 model = model.to('cuda')
 ```
 
-after loading the model, you can use the following code process the input images and get the depth map:
+After loading the model, you can use the following code to process the input images and get the depth map:
+
 
 ```python
 
@@ -80,7 +81,7 @@ metric_depth = out[0].squeeze().cpu().numpy() # The metric depth
 
 ### Evaluation
 
-First setup the configuration file `config.yaml` in the `configs` directory. We already provide the configuration files for the three datasets in the `configs` directory. In the configuration file, you can specify the path to the dataloader, the path to the model, and other hyperparameters. here is an example of the configuration file:
+First setup the configuration file `config.yaml` in the `configs` directory. We already provide the configuration files for the three datasets in the `configs` directory. In the configuration file, you can specify the path to the dataloader, the path to the model, and other hyperparameters. Here is an example of the configuration file:
 
 ```yaml
 data:
@@ -108,7 +109,7 @@ sh evaluate.sh
 
 ### Training
 
-First setup the configuration file `config.yaml` in the `configs` directory. you only need to specify the path to the dataset and the batch size. The rest of the hyperparameters are already set.
+First setup the configuration file `config.yaml` in the `configs` directory. You only need to specify the path to the dataset and the batch size. The rest of the hyperparameters are already set.
 For example, you can use the following configuration file for training on the NYUv2 dataset:
 
 ```yaml
