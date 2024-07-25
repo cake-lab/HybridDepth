@@ -15,11 +15,11 @@ This work presents HybridDepth. HybridDepth is a practical depth estimation solu
 
 ## News
 
+- **2024-07-25:** We released the pre-trained models.
 - **2024-07-23:** Model and Github repository is online.
 
 ## TODOs
 
-- [ ] Add pre-trained models.
 - [ ] Add Hugging Face model.
 - [ ] Release Android Mobile Client for HybridDepth.
 
@@ -29,9 +29,9 @@ We provide **three models** trained on different datasets. You can download them
 
 | Model | Checkpoint |
 |:-|:-:|
-| Hybrid-Depth-NYU | [Coming soon]() |
-| Hybrid-Depth-DDFF12 | [Coming soon]() |
-| Hybrid-Depth-ARKitScenes | [Coming soon]() |
+| Hybrid-Depth-NYU | [Download]() |
+| Hybrid-Depth-DDFF12 | [Download]() |
+| Hybrid-Depth-ARKitScenes | [Download]() |
 
 ## Usage
 
@@ -46,13 +46,23 @@ conda activate hybriddepth
 
 Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
 
+#### Dataset Preparation
+
+1. **NYU:**
+Download datasets as per instructions given [here](https://github.com/cleinc/bts/tree/master/pytorch#nyu-depvh-v2).
+
+1. **DDFF12:**
+Download datasets as per instructions given [here](https://github.com/fuy34/DFV).
+1. **ARKitScenes:**
+Download datasets as per instructions given [here](https://github.com/cake-lab/Mobile-AR-Depth-Estimation).
+
 ### Using HybridDepth model for prediction
 
 For inference you can run the provided notebook `test.ipynb` or use the following command:
 
 ```python
 # Load the model checkpoint
-model_path = './checkpoints/NYUBestScaleInv5Full.pth'
+model_path = './checkpoints/checkpoint.ckpt'
 model = DepthNetModule()
 # Load the weights
 model.load_state_dict(torch.load(model_path))
@@ -87,7 +97,7 @@ First setup the configuration file `config.yaml` in the `configs` directory. We 
 data:
   class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: 'path to the NYUv2 dataset' # path to the specific dataset
+    nyuv2_data_root: 'root to the NYUv2 dataset or other datasets' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your DataModule expects a tuple for img_size
     remove_white_border: True
     num_workers: 0  # if you are using synthetic data, you don't need multiple workers
@@ -97,7 +107,7 @@ data:
 model:
   invert_depth: True # If the model outputs inverted depth
 
-ckpt_path: checkpoints/hybrid_depth_nyu.pth
+ckpt_path: checkpoints/checkpoint.ckpt
 ```
 
 Then specify the configuration file in the `test.sh` script.
@@ -130,7 +140,7 @@ model:
 data:
   class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: 'root to the NYUv2 dataset' # path to the specific dataset
+    nyuv2_data_root: 'root to the NYUv2 dataset or other datasets' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 24 # Adjust the batch size
