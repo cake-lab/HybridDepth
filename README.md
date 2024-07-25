@@ -51,12 +51,12 @@ conda activate hybriddepth
 #### Dataset Preparation
 
 1. **NYU:**
-Download datasets as per instructions given [here](https://github.com/cleinc/bts/tree/master/pytorch#nyu-depvh-v2).
+Download dataset as per instructions given [here](https://github.com/cleinc/bts/tree/master/pytorch#nyu-depvh-v2).
 
 1. **DDFF12:**
-Download datasets as per instructions given [here](https://github.com/fuy34/DFV).
+Download dataset as per instructions given [here](https://github.com/fuy34/DFV).
 1. **ARKitScenes:**
-Download datasets as per instructions given [here](https://github.com/cake-lab/Mobile-AR-Depth-Estimation).
+Download dataset as per instructions given [here](https://github.com/cake-lab/Mobile-AR-Depth-Estimation).
 
 ### Using HybridDepth model for prediction
 
