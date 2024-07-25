@@ -29,22 +29,24 @@ We provide **three models** trained on different datasets. You can download them
 
 | Model | Checkpoint |
 |:-|:-:|
-| Hybrid-Depth-NYU | [Download]() |
-| Hybrid-Depth-DDFF12 | [Download]() |
-| Hybrid-Depth-ARKitScenes | [Download]() |
+| Hybrid-Depth-NYU-5 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/NYUBestScaleInv5Full.ckpt) |
+| Hybrid-Depth-NYU-10 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/NYUBestScaleInv10Full.ckpt) |
+| Hybrid-Depth-DDFF12-5 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DDFF12BestScaleInv.ckpt) |
+| Hybrid-Depth-ARKitScenes-5 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/scaleInvARKitScenes5.ckpt) |
 
 ## Usage
 
 ### Prepraration
-
+1. **Clone the repository and install the dependencies:**
 ```bash
 git clone https://github.com/cake-lab/HybridDepth.git
 cd HybridDepth
 conda env create -f environment.yml
 conda activate hybriddepth
 ```
-
-Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
+2. **Download Necessary Files:**
+   * Download the necessary file [here](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DFF-DFV.tar) and place it in the checkpoints directory.
+   * Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
 
 #### Dataset Preparation
 
