@@ -6,8 +6,6 @@ data:
     img_size: [480, 640] 
     batch_size: 1
     num_workers: 0  # Adjust based on your requirements
-    num_cluster: 5
-
 model:
   invert_depth: True 
 
