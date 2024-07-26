@@ -9,7 +9,6 @@ data:
     batch_size: 1
     num_workers: 5
     use_labels: True
-    num_cluster: 5
 model:
   invert_depth: False
 
