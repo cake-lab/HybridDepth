@@ -104,7 +104,6 @@ data:
     remove_white_border: True
     num_workers: 0  # if you are using synthetic data, you don't need multiple workers
     use_labels: True
-    num_cluster: 5
 
 model:
   invert_depth: True # If the model outputs inverted depth
@@ -148,7 +147,6 @@ data:
     batch_size: 24 # Adjust the batch size
     num_workers: 0  # if you are using synthetic data, you don't need multiple workers
     use_labels: True
-    num_cluster: 5
 ckpt_path: null
 ```
 
