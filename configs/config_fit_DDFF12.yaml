@@ -64,5 +64,4 @@ data:
     img_size: [224,224] 
     batch_size: 8 # Adjust batch size
     num_workers: 0  # Adjust based on your requirements
-    num_cluster: 5
 ckpt_path: null # checkpoints to continue the training.
