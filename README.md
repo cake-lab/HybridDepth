@@ -162,3 +162,18 @@ Finally, run the following command:
 cd scripts
 sh train.sh
 ```
+
+## Citation
+If our work assists you in your research, please cite it as follows:
+
+```Bibtex
+@misc{ganj2024hybriddepthrobustdepthfusion,
+      title={HybridDepth: Robust Depth Fusion for Mobile AR by Leveraging Depth from Focus and Single-Image Priors}, 
+      author={Ashkan Ganj and Hang Su and Tian Guo},
+      year={2024},
+      eprint={2407.18443},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.18443}, 
+}
+```
