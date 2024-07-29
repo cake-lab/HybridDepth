@@ -8,6 +8,7 @@
 
 <a href="https://arxiv.org/pdf/2407.18443"><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='arXiv'></a>
 <a href=''><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-yellow'></a>
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hybriddepth-robust-depth-fusion-for-mobile-ar/monocular-depth-estimation-on-arkitscenes)](https://paperswithcode.com/sota/monocular-depth-estimation-on-arkitscenes?p=hybriddepth-robust-depth-fusion-for-mobile-ar)
 </div>
 
 This work presents HybridDepth. HybridDepth is a practical depth estimation solution based on focal stack images captured from a camera. This approach outperforms state-of-the-art models across several well-known datasets, including NYU V2, DDFF12, and ARKitScenes.
