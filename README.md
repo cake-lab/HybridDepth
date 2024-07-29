@@ -6,7 +6,7 @@
 <sup>1</sup>Worcester Polytechnic Institute
 &emsp;&emsp;&emsp;<sup>2</sup>Nvidia Research
 
-<a href=""><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='Paper PDF'></a>
+<a href="https://arxiv.org/pdf/2407.18443"><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='arXiv'></a>
 <a href=''><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-yellow'></a>
 </div>
 
