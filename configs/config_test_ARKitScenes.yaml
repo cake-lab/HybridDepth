@@ -11,4 +11,4 @@ data:
 model:
   invert_depth: True 
 
-ckpt_path: ./checkpoints/checkpoint.pth #path to the checkpoint
+ckpt_path: null #path to the checkpoint
