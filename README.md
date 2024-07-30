@@ -6,8 +6,9 @@
 <sup>1</sup>Worcester Polytechnic Institute
 &emsp;&emsp;&emsp;<sup>2</sup>Nvidia Research
 
-<a href=""><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='Paper PDF'></a>
-<a href=''><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-yellow'></a>
+<a href="https://arxiv.org/pdf/2407.18443"><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='arXiv'></a>
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hybriddepth-robust-depth-fusion-for-mobile-ar/monocular-depth-estimation-on-arkitscenes)](https://paperswithcode.com/sota/monocular-depth-estimation-on-arkitscenes?p=hybriddepth-robust-depth-fusion-for-mobile-ar)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hybriddepth-robust-depth-fusion-for-mobile-ar/monocular-depth-estimation-on-nyu-depth-v2)](https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=hybriddepth-robust-depth-fusion-for-mobile-ar)
 </div>
 
 This work presents HybridDepth. HybridDepth is a practical depth estimation solution based on focal stack images captured from a camera. This approach outperforms state-of-the-art models across several well-known datasets, including NYU V2, DDFF12, and ARKitScenes.
@@ -15,11 +16,11 @@ This work presents HybridDepth. HybridDepth is a practical depth estimation solu
 
 ## News
 
+- **2024-07-25:** We released the pre-trained models.
 - **2024-07-23:** Model and Github repository is online.
 
 ## TODOs
 
-- [ ] Add pre-trained models.
 - [ ] Add Hugging Face model.
 - [ ] Release Android Mobile Client for HybridDepth.
 
@@ -29,22 +30,34 @@ We provide **three models** trained on different datasets. You can download them
 
 | Model | Checkpoint |
 |:-|:-:|
-| Hybrid-Depth-NYU | [Coming soon]() |
-| Hybrid-Depth-DDFF12 | [Coming soon]() |
-| Hybrid-Depth-ARKitScenes | [Coming soon]() |
+| Hybrid-Depth-NYU-5 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/NYUBestScaleInv5Full.ckpt) |
+| Hybrid-Depth-NYU-10 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/NYUBestScaleInv10Full.ckpt) |
+| Hybrid-Depth-DDFF12-5 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DDFF12BestScaleInv.ckpt) |
+| Hybrid-Depth-ARKitScenes-5 | [Download](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/scaleInvARKitScenes5.ckpt) |
 
 ## Usage
 
 ### Prepraration
-
+1. **Clone the repository and install the dependencies:**
 ```bash
 git clone https://github.com/cake-lab/HybridDepth.git
 cd HybridDepth
 conda env create -f environment.yml
 conda activate hybriddepth
 ```
+2. **Download Necessary Files:**
+   * Download the necessary file [here](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DFF-DFV.tar) and place it in the checkpoints directory.
+   * Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
 
-Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
+#### Dataset Preparation
+
+1. **NYU:**
+Download dataset as per instructions given [here](https://github.com/cleinc/bts/tree/master/pytorch#nyu-depvh-v2).
+
+1. **DDFF12:**
+Download dataset as per instructions given [here](https://github.com/fuy34/DFV).
+1. **ARKitScenes:**
+Download dataset as per instructions given [here](https://github.com/cake-lab/Mobile-AR-Depth-Estimation).
 
 ### Using HybridDepth model for prediction
 
@@ -52,7 +65,7 @@ For inference you can run the provided notebook `test.ipynb` or use the followin
 
 ```python
 # Load the model checkpoint
-model_path = './checkpoints/NYUBestScaleInv5Full.pth'
+model_path = './checkpoints/checkpoint.ckpt'
 model = DepthNetModule()
 # Load the weights
 model.load_state_dict(torch.load(model_path))
@@ -87,17 +100,16 @@ First setup the configuration file `config.yaml` in the `configs` directory. We 
 data:
   class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: 'path to the NYUv2 dataset' # path to the specific dataset
+    nyuv2_data_root: 'root to the NYUv2 dataset or other datasets' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your DataModule expects a tuple for img_size
     remove_white_border: True
     num_workers: 0  # if you are using synthetic data, you don't need multiple workers
     use_labels: True
-    num_cluster: 5
 
 model:
   invert_depth: True # If the model outputs inverted depth
 
-ckpt_path: checkpoints/hybrid_depth_nyu.pth
+ckpt_path: checkpoints/checkpoint.ckpt
 ```
 
 Then specify the configuration file in the `test.sh` script.
@@ -130,13 +142,12 @@ model:
 data:
   class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: 'root to the NYUv2 dataset' # path to the specific dataset
+    nyuv2_data_root: 'root to the NYUv2 dataset or other datasets' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 24 # Adjust the batch size
     num_workers: 0  # if you are using synthetic data, you don't need multiple workers
     use_labels: True
-    num_cluster: 5
 ckpt_path: null
 ```
 
@@ -151,4 +162,19 @@ Finally, run the following command:
 ```bash
 cd scripts
 sh train.sh
+```
+
+## Citation
+If our work assists you in your research, please cite it as follows:
+
+```Bibtex
+@misc{ganj2024hybriddepthrobustdepthfusion,
+      title={HybridDepth: Robust Depth Fusion for Mobile AR by Leveraging Depth from Focus and Single-Image Priors}, 
+      author={Ashkan Ganj and Hang Su and Tian Guo},
+      year={2024},
+      eprint={2407.18443},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.18443}, 
+}
 ```

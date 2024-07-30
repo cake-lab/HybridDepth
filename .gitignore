@@ -7,7 +7,6 @@ data/*
 logs/*
 lightning_logs/*
 results/imgs/*
-checkpoints/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
