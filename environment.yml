@@ -134,7 +134,6 @@ dependencies:
       - decorator==5.1.1
       - docstring-parser==0.16
       - fqdn==1.5.1
-      - gauss-psf-cuda==0.0.0
       - grpcio==1.62.1
       - imageio==2.34.0
       - importlib-resources==6.3.2
