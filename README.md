@@ -51,7 +51,12 @@ conda activate hybriddepth
 2. **Download Necessary Files:**
    * Download the necessary file [here](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DFF-DFV.tar) and place it in the checkpoints directory.
    * Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
+3. **Install Synthesizing cuda package**
+```bash
 
+python utils/synthetic/gauss_psf/setup.py install
+```
+This will install the Python package for synthesizing images.
 #### Dataset Preparation
 
 1. **NYU:**
