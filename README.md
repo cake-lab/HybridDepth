@@ -49,7 +49,7 @@ conda env create -f environment.yml
 conda activate hybriddepth
 ```
 2. **Download Necessary Files:**
-   * Download the necessary file [here](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DFF-DFV.tar) and place it in the checkpoints directory.
+   * Download the necessary file [here](https://github.com/cake-lab/HybridDepth/releases/download/v1.0/DFF-DFV.tar) and place it in the `checkpoints` directory.
    * Download the checkpoints listed [here](#pre-trained-models) and put them under the `checkpoints` directory.
 3. **Install Synthesizing cuda package**
 ```bash
