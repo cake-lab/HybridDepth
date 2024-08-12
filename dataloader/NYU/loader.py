@@ -15,7 +15,8 @@ class NYULoader(Dataset):
         nyuv2_data_root: str = "",
         img_size: Tuple = (480, 640),
         remove_white_border: bool = True,
-        stage: str = "test"
+        stage: str = "test",
+        n_stack: int = 10,
     ) -> None:
         super(NYULoader, self).__init__()
 
@@ -31,6 +32,8 @@ class NYULoader(Dataset):
         self.mean_input= [0.485, 0.456, 0.406]
         self.std_input=[0.229, 0.224, 0.225]
         
+        self.n_stack = n_stack
+        
     def __len__(self) -> int:
         return len(self.nyuv2_dataset)
 
@@ -45,8 +48,7 @@ class NYULoader(Dataset):
         
         min = torch.min(depth[mask==1])
         max  = torch.max(depth[mask==1])
-
-        focus_distances = torch.linspace(min,max, steps=10)
+        focus_distances = torch.linspace(min,max, steps=self.n_stack)
         
         focal_stack = camera_lib.render_defocus(
             rgb_aif,

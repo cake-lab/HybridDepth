@@ -8,7 +8,8 @@ data:
     batch_size: 1
     num_workers: 0  # Adjust based on your requirements
     use_labels: True
+    n_stack: 10
 model:
   invert_depth: True
 
-ckpt_path: ./checkpoints/checkpoint.pth #path to checkpoint
+ckpt_path: /checkpoints.ckpt #path to checkpoint

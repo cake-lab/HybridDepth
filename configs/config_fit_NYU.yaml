@@ -66,4 +66,5 @@ data:
     batch_size: 24 # Adjust batch size
     num_workers: 0   # leave it as zero since we are using synthesizing method
     use_labels: True
+    n_stack: 10
 ckpt_path: null # checkpoints to continue the training.

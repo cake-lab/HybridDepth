@@ -136,19 +136,19 @@ class NYUv2LabeledDataset(Dataset):
         depth_gt = depth_gt / 1000.0
 
         # remove the borders from depth map since it can cause problem in focal stack creation
-        # new_width = 512
+        new_width = 512
 
-        # # Calculate the new height to maintain the aspect ratio
-        # aspect_ratio = h / w
-        # new_height = int(new_width * aspect_ratio)
+        # Calculate the new height to maintain the aspect ratio
+        aspect_ratio = h / w
+        new_height = int(new_width * aspect_ratio)
 
-        # # Calculate the cropping position
-        # start_row = int((h - new_height) / 2)
-        # start_col = int((w - new_width) / 2)
+        # Calculate the cropping position
+        start_row = int((h - new_height) / 2)
+        start_col = int((w - new_width) / 2)
 
-        # # Crop the image
-        # color_img = color_img[start_row:start_row + new_height, start_col:start_col + new_width]
-        # depth_gt = depth_gt[start_row:start_row + new_height, start_col:start_col + new_width]
+        # Crop the image
+        color_img = color_img[start_row:start_row + new_height, start_col:start_col + new_width]
+        depth_gt = depth_gt[start_row:start_row + new_height, start_col:start_col + new_width]
                 
         t_resize = transforms_v2.Resize(self.img_size)
 

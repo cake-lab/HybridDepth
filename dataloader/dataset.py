@@ -89,6 +89,7 @@ class NYUDataModule(pl.LightningDataModule):
         num_workers: int = 16,
         use_labels: bool = True,
         num_cluster: int = 5,
+        n_stack: int = 10,
     ):
         """Initialize the data module."""
         super().__init__()
@@ -97,7 +98,7 @@ class NYUDataModule(pl.LightningDataModule):
         self.nyu_data_root = nyuv2_data_root
         self.image_size = img_size
         self.remove_white_border = remove_white_border
-
+        self.n_stack = n_stack
         self.batch_size = batch_size
         self.num_workers = num_workers
         self.use_labels = use_labels
@@ -115,12 +116,14 @@ class NYUDataModule(pl.LightningDataModule):
                 self.nyu_data_root,
                 img_size=self.image_size,
                 remove_white_border=self.remove_white_border,
+                n_stack=self.n_stack,
                 stage="train"
             )
             self.test_dataset = NYULoader(
                 self.nyu_data_root,
                 img_size=self.image_size,
                 remove_white_border=self.remove_white_border,
+                n_stack=self.n_stack,
                 stage="test"
             )
         if stage == "test":
@@ -128,6 +131,7 @@ class NYUDataModule(pl.LightningDataModule):
                 self.nyu_data_root,
                 img_size=self.image_size,
                 remove_white_border=self.remove_white_border,
+                n_stack=self.n_stack,
                 stage="test"
             )
 

@@ -4,4 +4,4 @@ cd ../
 
 export CUDA_VISIBLE_DEVICES=1
 
-python cli_run.py test  --config configs/config_test_ARKitScenes.yaml
+python cli_run.py test  --config configs/config_test_NYU.yaml
