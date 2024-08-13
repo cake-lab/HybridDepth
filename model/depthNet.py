@@ -49,7 +49,7 @@ class DepthNet(nn.Module):
         self.DFF_model = DFFNet(clean=False,level=4, use_diff=1)
         # self.DFF_model = nn.DataParallel(self.DFF_model)
         self.DFF_model.cuda()
-        DFV_weights = '/home/ashkanganj/workspace/PrecisionDepthFocus/checkpoints/DFF-DFV.tar'
+        DFV_weights = 'checkpoints/DFF-DFV.tar'
  
         if DFV_weights is not None:
             pretrained_dict = torch.load(DFV_weights)
