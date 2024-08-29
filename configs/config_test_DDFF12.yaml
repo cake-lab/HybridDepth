@@ -12,4 +12,4 @@ data:
 model:
   invert_depth: False
 
-ckpt_path: ./checkpoints/checkpoint.pth #path to the checkpoint
+ckpt_path: checkpoints/DDFF12BestScaleInv.ckpt #path to the checkpoint

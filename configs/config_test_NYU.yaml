@@ -12,4 +12,4 @@ data:
 model:
   invert_depth: True
 
-ckpt_path: /checkpoints.ckpt #path to checkpoint
+ckpt_path: checkpoints/NYUBestScaleInv10Full.ckpt #path to checkpoint
