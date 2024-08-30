@@ -73,11 +73,8 @@ For inference you can run the provided notebook `test.ipynb` or use the followin
 
 ```python
 # Load the model checkpoint
-model_path = './checkpoints/checkpoint.ckpt'
-model = DepthNetModule()
-# Load the weights
-model.load_state_dict(torch.load(model_path))
-
+model_path = 'checkpoints/NYUBestScaleInv10Full.ckpt'
+model = DepthNetModule.load_from_checkpoint(model_path)
 model.eval()
 model = model.to('cuda')
 ```
