@@ -9,30 +9,6 @@ from .modules.GlobalScaleEstimator import LeastSquaresEstimator
 from .modules.depth_anything.dpt import DepthAnything
 
 
-def normalize_unit_range(data):
-    """Normalize PyTorch tensor to [0, 1] range.
-
-    Args:
-        data (tensor): input tensor
-
-    Returns:
-        tensor: normalized tensor
-    """
-    # Ensure data is a PyTorch tensor
-    if not torch.is_tensor(data):
-        raise ValueError("Input must be a PyTorch tensor")
-    
-    # Calculate min and max
-    min_val = torch.min(data)
-    max_val = torch.max(data)
-    
-    if max_val - min_val > torch.finfo(data.dtype).eps:
-        normalized = (data - min_val) / (max_val - min_val)
-    else:
-        raise ValueError("Cannot normalize tensor, max-min range is 0")
-    
-    return normalized
-
 
 class DepthNet(nn.Module):
     """A baseline model for depth form focus (DFF)."""
@@ -113,7 +89,6 @@ class DepthNet(nn.Module):
         intr_depth = GlobalAlignment.output.float()
         
         scale_map = self.scaffholding(intr_depth, pred_dff)
-        # scale_map = normalize_unit_range(scale_map)
 
         
         sample = {"int_depth" : intr_depth, "int_scales" : scale_map, "int_depth_no_tf" : intr_depth}
