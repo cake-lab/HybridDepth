@@ -60,7 +60,7 @@ model:
 data:
   class_path: dataloader.dataset.NYUDataModule
   init_args:
-    nyuv2_data_root: '/home/ashka/data/nyu_depth_v2/official_splits/'
+    nyuv2_data_root: '/home/ashka/data/nyu_depth_v2' # path to NYU dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 24 # Adjust batch size

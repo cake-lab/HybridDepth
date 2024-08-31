@@ -2,7 +2,7 @@
 data:
   class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: '/home/ashkanganj/workspace/dataset/nyu_depth_v2/official_splits' # path to the specific dataset
+    nyuv2_data_root: '/home/ashkanganj/workspace/dataset/nyu_depth_v2' # path to NYU dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 1
