@@ -182,4 +182,20 @@ If our work assists you in your research, please cite it as follows:
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2407.18443}, 
 }
+@inproceedings{10.1145/3638550.3641122,
+      author = {Ganj, Ashkan and Zhao, Yiqin and Su, Hang and Guo, Tian},
+      title = {Mobile AR Depth Estimation: Challenges \& Prospects},
+      year = {2024},
+      isbn = {9798400704970},
+      publisher = {Association for Computing Machinery},
+      address = {New York, NY, USA},
+      url = {https://doi.org/10.1145/3638550.3641122},
+      doi = {10.1145/3638550.3641122},
+      abstract = {Accurate metric depth can help achieve more realistic user interactions such as object placement and occlusion detection in mobile augmented reality (AR). However, it can be challenging to obtain metricly accurate depth estimation in practice. We tested four different state-of-the-art (SOTA) monocular depth estimation models on a newly introduced dataset (ARKitScenes) and observed obvious performance gaps on this real-world mobile dataset. We categorize the challenges to hardware, data, and model-related challenges and propose promising future directions, including (i) using more hardware-related information from the mobile device's camera and other available sensors, (ii) capturing high-quality data to reflect real-world AR scenarios, and (iii) designing a model architecture to utilize the new information.},
+      booktitle = {Proceedings of the 25th International Workshop on Mobile Computing Systems and Applications},
+      pages = {21–26},
+      numpages = {6},
+      location = {<conf-loc>, <city>San Diego</city>, <state>CA</state>, <country>USA</country>, </conf-loc>},
+      series = {HOTMOBILE '24}
+}
 ```
