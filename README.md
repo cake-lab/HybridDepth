@@ -23,7 +23,7 @@ This work presents HybridDepth. HybridDepth is a practical depth estimation solu
 - **2024-07-23:** Model and Github repository is online.
 
 ## TODOs
-
+- [ ] Release a new model and pre-trained weights with improved performance.
 - [ ] Add Hugging Face model.
 - [ ] Release Android Mobile Client for HybridDepth.
 
