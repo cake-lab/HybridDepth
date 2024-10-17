@@ -7,6 +7,7 @@
 &emsp;&emsp;&emsp;<sup>2</sup>Nvidia Research
 
 <a href="https://arxiv.org/pdf/2407.18443"><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='arXiv'></a>
+<a href="https://ashkanganj.me/files/ISMAR-Poster.pdf"><img src='https://img.shields.io/badge/ISMAR24-Poster-blue'></a>
 <a href="https://huggingface.co/AshkanGanj/HybridDepth"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Link-yellow'></a>
 
 
