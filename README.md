@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Hybrid Depth: Robust Depth Fusion for Mobile AR </br> By Leveraging Depth from Focus and Single-Image Priors</h1>
+<h1>Hybrid Depth: Robust Depth Fusion </br> By Leveraging Depth from Focus and Single-Image Priors</h1>
 
 [**Ashkan Ganj**](https://ashkanganj.me/)<sup>1</sup> · [**Hang Su**](https://suhangpro.github.io/)<sup>2</sup> · [**Tian Guo**](https://tianguo.info/)<sup>1</sup>
 
