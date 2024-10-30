@@ -2,14 +2,14 @@
 data:
   class_path: dataloader.dataset.NYUDataModule # Path to your dataloader Module in dataset.py
   init_args:
-    nyuv2_data_root: '/home/ashkanganj/workspace/dataset/nyu_depth_v2' # path to NYU dataset
+    nyuv2_data_root: '/home/ashkanganj/workspace/dataset/nyu_depth_v2' # path to the specific dataset
     img_size: [480, 640]  # Adjust if your NYUDataModule expects a tuple for img_size
     remove_white_border: True
     batch_size: 1
     num_workers: 0  # Adjust based on your requirements
     use_labels: True
-    n_stack: 10
+    n_stack: 5
 model:
   invert_depth: True
 
-ckpt_path: checkpoints/NYUBestScaleInv10Full.ckpt #path to checkpoint
+ckpt_path: checkpoints/NYUBest5-DFV-Trained.ckpt #path to checkpoint

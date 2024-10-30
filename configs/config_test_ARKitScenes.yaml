@@ -9,4 +9,4 @@ data:
 model:
   invert_depth: True 
 
-ckpt_path: null #path to the checkpoint
+ckpt_path: checkpoints/NyuBest5.ckpt #path to the checkpoint

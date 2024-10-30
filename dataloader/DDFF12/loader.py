@@ -144,8 +144,10 @@ class DDFF12Loader(Dataset):
             pass
             # out_disp = out_disp[:, :384, :576]
             # out_imgs = out_imgs[:,:, :384, :576]
-
-        mask = out_disp != 0
+            
+        # mask is any pixel with depth greater than 0.02 and less than 0.28
+        mask = (out_disp > self.focus_dists_min) & (out_disp < self.focus_dists_max)
+        # mask = out_disp != 0
         # out_disp = self.disp2dpth(out_disp, self.mat)
         # focus_dists = self.disp2dpth(focus_dists, self.mat)
 

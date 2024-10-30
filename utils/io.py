@@ -16,9 +16,10 @@ def align_images(base_img, img_to_align):
     keypoints2, descriptors2 = orb.detectAndCompute(align_gray, None)
     if descriptors1 is None or descriptors2 is None:
         print("No descriptors found; check the input images.")
-        return img_to_align 
+        return img_to_align
 
-    matcher = cv2.DescriptorMatcher_create(cv2.DESCRIPTOR_MATCHER_BRUTEFORCE_HAMMING)
+    matcher = cv2.DescriptorMatcher_create(
+        cv2.DESCRIPTOR_MATCHER_BRUTEFORCE_HAMMING)
 
     matches = matcher.match(descriptors1, descriptors2)
 
@@ -43,36 +44,46 @@ def align_images(base_img, img_to_align):
 
     return aligned_image
 
-
 def prepare_input_image(data_dir):
     image_files = sorted(os.listdir(data_dir))
+    
+    # Check for non-jpg files
+    for file in image_files:
+        if not file.endswith('.jpg'):
+            raise ValueError(f"File {file} is not a .jpg file")
+
+    # Sort on the focus distance
+    image_files = sorted(image_files, key=lambda x: float(
+        x.split("_")[-1].removesuffix(".jpg")))
     base_image = imageio.imread(os.path.join(data_dir, image_files[0]))
     base_image = cv2.resize(base_image, (640, 480))
     aligned_images = []
     focus_dist = np.array([])
 
-    base_torch = torch.from_numpy(base_image).permute(2, 0, 1).unsqueeze(0).float()
-    base_torch = base_torch/255.0
+    base_torch = torch.from_numpy(base_image).permute(
+        2, 0, 1).unsqueeze(0).float()
+    base_torch = base_torch / 255.0
     aligned_images.append(base_torch)
 
-
-    focus_dist = np.append(focus_dist, float(image_files[0].split("_")[-1].removesuffix(".png")))
-
+    focus_dist = np.append(focus_dist, float(
+        image_files[0].split("_")[-1].removesuffix(".jpg")))
     for img_name in image_files[1:]:
         img_path = os.path.join(data_dir, img_name)
-        focus_dist = np.append(focus_dist, float(img_name.split("_")[-1].removesuffix(".png")))
-        
+        focus_dist = np.append(focus_dist, float(
+            img_name.split("_")[-1].removesuffix(".jpg")))
+
         current_image = imageio.imread(img_path)
-        # resize the image to 480x640
+        # Resize the image to 480x640
         current_image = cv2.resize(current_image, (640, 480))
         # aligned_img = current_image
         aligned_img = align_images(base_image, current_image)
-        
-        aligned_img = torch.from_numpy(aligned_img).permute(2, 0, 1).unsqueeze(0).float()
-        aligned_img = aligned_img/255.0
-        
+
+        aligned_img = torch.from_numpy(aligned_img).permute(
+            2, 0, 1).unsqueeze(0).float()
+        aligned_img = aligned_img / 255.0
+
         aligned_images.append(aligned_img)
-        
+
     rgb_img = aligned_images[0]
 
     focal_stack = torch.cat(aligned_images, dim=0)
@@ -81,8 +92,10 @@ def prepare_input_image(data_dir):
     mean_input = torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)
     std_input = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)
 
-    normalized_focal_stack = (focal_stack - mean_input.to(focal_stack.device)) / std_input.to(focal_stack.device)
-    normalized_rgb_img = (rgb_img - mean_input.to(rgb_img.device)) / std_input.to(rgb_img.device)
+    normalized_focal_stack = (
+        focal_stack - mean_input.to(focal_stack.device)) / std_input.to(focal_stack.device)
+    normalized_rgb_img = (
+        rgb_img - mean_input.to(rgb_img.device)) / std_input.to(rgb_img.device)
     normalized_focal_stack = normalized_focal_stack.unsqueeze(0)
 
     print(f'Focal stack shape: {normalized_focal_stack.shape}')
@@ -95,6 +108,7 @@ def prepare_input_image(data_dir):
     focus_dist = focus_dist.to(device)
 
     return normalized_focal_stack, rgb_img, focus_dist
+
 
 class IO:
     def __init__(self, csv_path, img_dir, std_dir=None):
@@ -178,7 +192,7 @@ class IO:
 
             # Flatten metrics and convert tensors to numpy arrays
             metrics = metrics.flatten().tolist()
-            
+
             rgb_aif_np = tensor_to_numpy(rgb_aif)
             pred_depth_np = tensor_to_numpy(pred_depth)
             gt_depth_np = tensor_to_numpy(gt_depth)
@@ -198,22 +212,21 @@ class IO:
                 vmin = pred_depth_np.min()
             if vmax < pred_depth_np.max():
                 vmax = pred_depth_np.max()
-                
-                
 
             # Create a figure with 2 rows and 4 columns
             fig, axes = plt.subplots(2, 6, figsize=(30, 6))
 
             # First row: Original images with original color maps
+            
             axes[0, 0].imshow(rgb_aif_np)
             axes[0, 0].set_title("RGB Image")
             axes[0, 0].axis('off')
 
             scale_map = axes[0, 1].imshow(scale_map_np, cmap=plt.cm.plasma)
-            axes[0, 1].set_title("Scale Map")
+            axes[0, 1].set_title("DFV")
             axes[0, 1].axis('off')
             plt.colorbar(scale_map, ax=axes[0, 1])
-            
+
             rel_depth = axes[0, 2].imshow(rel_depth_np, cmap=plt.cm.plasma)
             axes[0, 2].set_title("Rel Depth Map")
             axes[0, 2].axis('off')
@@ -247,13 +260,14 @@ class IO:
             axes[1, 0].set_title("RGB Image")
             axes[1, 0].axis('off')
 
-            scale_map_fixed = axes[1, 1].imshow(scale_map_np, cmap=plt.cm.plasma)
-            axes[1, 1].set_title("scale Map")
+            scale_map_fixed = axes[1, 1].imshow(
+                scale_map_np, cmap=plt.cm.plasma, vmin=vmin, vmax=vmax)
+            axes[1, 1].set_title("DFV")
             axes[1, 1].axis('off')
             plt.colorbar(scale_map_fixed, ax=axes[1, 1])
-            
-            
-            rel_depth_fixed = axes[1, 2].imshow(rel_depth_np, cmap=plt.cm.plasma)
+
+            rel_depth_fixed = axes[1, 2].imshow(
+                rel_depth_np, cmap=plt.cm.plasma)
             axes[1, 2].set_title("Rel Depth Map")
             axes[1, 2].axis('off')
             plt.colorbar(rel_depth_fixed, ax=axes[1, 2])

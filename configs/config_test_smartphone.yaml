@@ -1,0 +1,13 @@
+# pytorch_lightning==2.1.0
+data:
+  # For DDFF12DataModule
+  class_path: dataloader.dataset.SmartphoneDataModule # Path to your dataloader Module in dataset.py
+  init_args:
+    smartphoneRoot: '/home/ashkanganj/workspace/dataset/smartphone_dataset/'  # path to the specific dataset
+    batch_size: 1
+    num_workers: 5
+    use_labels: True
+model:
+  invert_depth: False
+
+ckpt_path: checkpoints/NyuBest10.ckpt #path to the checkpoint

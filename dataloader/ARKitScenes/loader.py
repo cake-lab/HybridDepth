@@ -44,7 +44,7 @@ class ARKitScenesLoader(Dataset):
         min_depth = torch.min(depth[mask==1])
         max_depth = torch.max(depth[mask==1])
 
-        focus_distances = torch.linspace(min_depth, max_depth, steps=10)
+        focus_distances = torch.linspace(min_depth, max_depth, steps=5)
 
         focal_stack = camera_lib.render_defocus(
             rgb_aif,
