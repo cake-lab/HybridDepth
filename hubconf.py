@@ -1,5 +1,5 @@
 import torch
-from model.main import DepthNetModule  # Import your model class here
+from model.main import DepthNetModule
 
 # Each model function below corresponds to a different version of HybridDepth 
 # trained with a specific number of focal stacks and datasets.
