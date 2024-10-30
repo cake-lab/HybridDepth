@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Hybrid Depth: Robust Depth Fusion for Mobile AR </br> By Leveraging Depth from Focus and Single-Image Priors</h1>
+<h1>Hybrid Depth: Robust Depth Fusion </br> By Leveraging Depth from Focus and Single-Image Priors</h1>
 
 [**Ashkan Ganj**](https://ashkanganj.me/)<sup>1</sup> · [**Hang Su**](https://suhangpro.github.io/)<sup>2</sup> · [**Tian Guo**](https://tianguo.info/)<sup>1</sup>
 
@@ -7,6 +7,7 @@
 &emsp;&emsp;&emsp;<sup>2</sup>Nvidia Research
 
 <a href="https://arxiv.org/pdf/2407.18443"><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='arXiv'></a>
+<a href="https://ashkanganj.me/files/ISMAR-Poster.pdf"><img src='https://img.shields.io/badge/ISMAR24-Poster-blue'></a>
 <a href="https://huggingface.co/AshkanGanj/HybridDepth"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Link-yellow'></a>
 
 
@@ -23,7 +24,7 @@ This work presents HybridDepth. HybridDepth is a practical depth estimation solu
 - **2024-07-23:** Model and Github repository is online.
 
 ## TODOs
-
+- [ ] (WIP) Release a new model and pre-trained weights with improved performance.
 - [ ] Add Hugging Face model.
 - [ ] Release Android Mobile Client for HybridDepth.
 
