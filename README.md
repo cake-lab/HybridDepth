@@ -51,8 +51,8 @@ Available Pre-trained Models:
 * `HybridDepth_NYU_PretrainedDFV5`: Pre-trained only on the refinement layer with NYU Depth V2 dataset using a 5-focal stack, following pre-training with DFV.
 
 ```python
-# Example: Load HybridDepth model with NYU dataset, pre-trained on DFV (5-focal stack)
-model = torch.hub.load('cake-lab/HybridDepth', 'HybridDepth_NYU_PretrainedDFV5', pretrained=True)
+model_name = 'HybridDepth_NYU_PretrainedDFV5' #change this
+model = torch.hub.load('cake-lab/HybridDepth', model_name , pretrained=True)
 model.eval()
 ```
 
