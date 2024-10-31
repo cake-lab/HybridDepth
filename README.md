@@ -41,11 +41,18 @@ Quickly get started with HybridDepth using the [Colab notebook](https://colab.re
 
 ### Using TorchHub
 
-You can select a pre-trained model directly with TorchHub:
+You can select a pre-trained model directly with TorchHub.
+
+Available Pre-trained Models:
+
+* `HybridDepth_NYU5`: Pre-trained on the NYU Depth V2 dataset using a 5-focal stack input, with both the DFF branch and refinement layer trained.
+* `HybridDepth_NYU10`: Pre-trained on the NYU Depth V2 dataset using a 10-focal stack input, with both the DFF branch and refinement layer trained.
+* `HybridDepth_DDFF5`: Pre-trained on the DDFF dataset using a 5-focal stack input.
+* `HybridDepth_NYU_PretrainedDFV5`: Pre-trained only on the refinement layer with NYU Depth V2 dataset using a 5-focal stack, following pre-training with DFV.
 
 ```python
 # Example: Load HybridDepth model with NYU dataset, pre-trained on DFV (5-focal stack)
-model = torch.hub.load('cake-lab/HybridDepth', 'HybridDepth_NYU_PretrainedDFV_FocalStack5', pretrained=True)
+model = torch.hub.load('cake-lab/HybridDepth', 'HybridDepth_NYU_PretrainedDFV5', pretrained=True)
 model.eval()
 ```
 
