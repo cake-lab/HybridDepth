@@ -37,7 +37,7 @@ This work presents HybridDepth. HybridDepth is a practical depth estimation solu
 
 ### Colab Notebook Starter File
 
-Quickly get started with HybridDepth using the [Colab notebook](https://colab.research.google.com/github/cake-lab/HybridDepth/blob/main/notebooks/starterColab.ipynb).
+Quickly get started with HybridDepth using the [Colab notebook](https://colab.research.google.com/github/cake-lab/HybridDepth/blob/main/notebooks/HybridDepthStarterNB.ipynb).
 
 ### Using TorchHub
 
