@@ -209,6 +209,17 @@ sh train.sh
 If our work assists you in your research, please cite it as follows:
 
 ```Bibtex
+@INPROCEEDINGS{10765280,
+  author={Ganj, Ashkan and Su, Hang and Guo, Tian},
+  booktitle={2024 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, 
+  title={Toward Robust Depth Fusion for Mobile AR With Depth from Focus and Single-Image Priors}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={517-520},
+  keywords={Analytical models;Accuracy;Source coding;Computational modeling;Pipelines;Estimation;Cameras;Mobile handsets;Hardware;Augmented reality;Metric Depth Estimation;Augmented Reality;Depth From Focus;Depth Estimation},
+  doi={10.1109/ISMAR-Adjunct64951.2024.00149}}
+
 @misc{ganj2024hybriddepthrobustmetricdepth,
       title={HybridDepth: Robust Metric Depth Fusion by Leveraging Depth from Focus and Single-Image Priors},
       author={Ashkan Ganj and Hang Su and Tian Guo},
