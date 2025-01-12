@@ -230,3 +230,7 @@ If our work assists you in your research, please cite it as follows:
       url={https://arxiv.org/abs/2407.18443},
 }
 ```
+
+
+## Developer's Note
+This code has been developed by Ashkan Ganj. If you have any questions, suggestions, or feedback, please don’t hesitate to reach out.(AshkanGanj@gmail.com, aganj@wpi.edu).
