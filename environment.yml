@@ -146,6 +146,7 @@ dependencies:
       - kornia-rs==0.1.2
       - lazy-loader==0.3
       - markdown==3.6
+      - opencv-python==4.11.0.86
       - openexr==3.2.3
       - pexpect==4.9.0
       - ptyprocess==0.7.0
