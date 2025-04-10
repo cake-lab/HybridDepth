@@ -6,9 +6,12 @@
 <sup>1</sup>Worcester Polytechnic Institute
 &emsp;&emsp;&emsp;<sup>2</sup>Nvidia Research
 
+<a href="https://openaccess.thecvf.com/content/WACV2025/html/Ganj_HybridDepth_Robust_Metric_Depth_Fusion_by_Leveraging_Depth_from_Focus_WACV_2025_paper.html"><img src='https://img.shields.io/badge/WACV-Paper-blue' alt='CVF'></a>
 <a href="https://arxiv.org/pdf/2407.18443"><img src='https://img.shields.io/badge/arXiv-Hybrid Depth-red' alt='arXiv'></a>
 <a href="https://ieeexplore.ieee.org/document/10765280"><img src='https://img.shields.io/badge/ISMAR24-Poster-blue'></a>
 <a href="https://huggingface.co/AshkanGanj/HybridDepth"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Link-yellow'></a>
+
+
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/hybriddepth-robust-depth-fusion-for-mobile-ar/monocular-depth-estimation-on-nyu-depth-v2)](https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=hybriddepth-robust-depth-fusion-for-mobile-ar)
 
