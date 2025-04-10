@@ -212,6 +212,16 @@ sh train.sh
 If our work assists you in your research, please cite it as follows:
 
 ```Bibtex
+
+@InProceedings{Ganj_2025_WACV,
+    author    = {Ganj, Ashkan and Su, Hang and Guo, Tian},
+    title     = {HybridDepth: Robust Metric Depth Fusion by Leveraging Depth from Focus and Single-Image Priors},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {973-982}
+}
+
 @INPROCEEDINGS{10765280,
   author={Ganj, Ashkan and Su, Hang and Guo, Tian},
   booktitle={2024 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, 
@@ -222,16 +232,6 @@ If our work assists you in your research, please cite it as follows:
   pages={517-520},
   keywords={Analytical models;Accuracy;Source coding;Computational modeling;Pipelines;Estimation;Cameras;Mobile handsets;Hardware;Augmented reality;Metric Depth Estimation;Augmented Reality;Depth From Focus;Depth Estimation},
   doi={10.1109/ISMAR-Adjunct64951.2024.00149}}
-
-@misc{ganj2024hybriddepthrobustmetricdepth,
-      title={HybridDepth: Robust Metric Depth Fusion by Leveraging Depth from Focus and Single-Image Priors},
-      author={Ashkan Ganj and Hang Su and Tian Guo},
-      year={2024},
-      eprint={2407.18443},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2407.18443},
-}
 ```
 
 
