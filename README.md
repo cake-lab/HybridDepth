@@ -165,7 +165,8 @@ sh evaluate.sh
 Install the required CUDA-based package for image synthesis:
 
 ```bash
-python utils/synthetic/gauss_psf/setup.py install
+cd ./utils/synthetic/gauss_psf/ 
+python setup.py install
 ```
 
 This installs the package necessary for synthesizing images.
